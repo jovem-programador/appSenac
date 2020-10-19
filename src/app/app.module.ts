@@ -17,8 +17,7 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 
-
-
+import{ HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +30,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireAnalyticsModule,
+    HttpClientModule,
   ],
   providers: [
     StatusBar,

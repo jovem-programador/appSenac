@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToCadastro = () => redirectLoggedInTo(['cadastro']);
+// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+// const redirectLoggedInToCadastro = () => redirectLoggedInTo(['cadastro']);
 
 const routes: Routes = [
   {
@@ -14,20 +14,34 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./paginas/login/login.module').then(m => m.LoginPageModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToCadastro }
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectLoggedInToCadastro }
   },
   {
     path: 'cadastro',
     loadChildren: () => import('./paginas/cadastro/cadastro.module').then( m => m.CadastroPageModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'cadastro/:id',
+    loadChildren: () => import('./paginas/cadastro/cadastro.module').then( m => m.CadastroPageModule),
+  //   canActivate: [AngularFireAuthGuard],
+  //   data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: 'home',
     loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'e404',
+    loadChildren: () => import('./paginas/e404/e404.module').then( m => m.E404PageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./paginas/e404/e404.module').then( m => m.E404PageModule)
   },
 
   // {

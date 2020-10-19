@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
 
   loginGoogle() {
     this.afAuth.signInWithPopup(new auth.GoogleAuthProvider()).then(()=>{
-      this.router.navigate(['cadastro']);
+      this.router.navigate(['home']);
     });
   }
   logoutGoogle() {

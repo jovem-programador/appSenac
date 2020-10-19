@@ -1,15 +1,20 @@
-// import { Injectable } from '@angular/core';
-// import { AngularFireAuth } from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
-// import { User } from '../interface/user';
+import { User } from '../interface/user';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
 
-//   constructor(private afa: AngularFireAuth) { }
+  constructor(private afa: AngularFireAuth) { }
+
+  getAuth(){
+      return this.afa;
+  }
+
 
 //   login(user:User){
 //     return this.afa.signInWithEmailAndPassword(user.email, user.senha);
@@ -22,4 +27,4 @@
 //   logout(){
 
 //   }
-// }
+}
