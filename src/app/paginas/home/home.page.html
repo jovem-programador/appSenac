@@ -1,71 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Início</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <!-- temporariamente, somente para teste -->
-
-  <ion-list *ngIf="!users.length">
-    <ion-item ngFor="let item of [0, 1, 2]">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-avatar>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let user of users">
-      <ion-item button [routerLink]="['cadastro', 'cadastro.id']">
-        <ion-avatar slot="start">
-          <img [src]="user.foto">
-        </ion-avatar>
-
-        <ion-label>
-          {{user.nome}}
-          <p>{{user.email}}</p>
-          <p>{{user.criadoEm | date: 'short'}}</p>
-        </ion-label>
-      </ion-item>
-      <ion-item-option slide="end">
-        <ion-item-option color="danger" ((click)="deleteUser(user.userId)">
-          <ion-icon slot="top" name="trash"></ion-icon>
-          Excluir
-        </ion-item-option>
-      </ion-item-option>
-    </ion-item-sliding>
-  </ion-list>
-  <!-- temporariamente, somente para teste -->
-
-
+  <h1>Bem Vindo</h1>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-button color="danger" (click)="logoutGoogle()" expland="block">Deslogar</ion-button>
-        </ion-col>
-
-        <ion-col size="6">
-          <ion-button routerLink="/cadastro" expland="block">Adicionar</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>

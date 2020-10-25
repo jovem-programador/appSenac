@@ -3,6 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 
+
+import { AuthService } from '../../services/auth.service';
+
 // import { LoadingController, ToastController } from '@ionic/angular';
 // import { User } from 'src/app/interface/user';
 // import { AuthService } from 'src/app/services/auth.service';
@@ -23,19 +26,32 @@ export class LoginPage implements OnInit {
     // public loadingController: LoadingController,
     // private authService: AuthService,
     // private toastCtrl: ToastController,
-  ) { }
+
+    // 1.2) Inicializa serviço de autenticação
+    public authService: AuthService
+  ) { 
+        // 1.3) Força logout do usuário
+        this.authService.logout();
+  }
 
   ngOnInit() {
   }
 
-  loginGoogle() {
+    // 1.4) Ação do botão [Entrar]
+    login(provider: string) {
+
+      // 1.5) Executa serice de login
+      this.authService.login(provider);
+    }
+
+/*  loginGoogle() {
     this.afAuth.signInWithPopup(new auth.GoogleAuthProvider()).then(()=>{
       this.router.navigate(['home']);
     });
   }
   logoutGoogle() {
     this.afAuth.signOut();
-  }
+  } */
 
   // async logar() {
   //   await this.presentLoading();

@@ -1,14 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 <ion-content>
 
   <div class="centralizar">
+
+  <div class="login-table">
+    Login:
+    <ion-button expand="block" (click)="login('google')">
+      <ion-icon name="logo-google" slot="start"></ion-icon>
+      Google
+    </ion-button>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+
+ <!--
+    <div class="centralizar">
     <ng-template #showLoginGoogle>
       <ion-button expand="full" color="light" (click)="loginGoogle()">Entrar com o Google</ion-button>
     </ng-template>
@@ -17,6 +29,10 @@
     </div>
 
   </div>
+
+--> 
+
+
 
   <!-- FAZER DEPOIS, LOGIN NO PRÓPRIO APP  -->
 

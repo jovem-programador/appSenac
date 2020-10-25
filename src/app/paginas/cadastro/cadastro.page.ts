@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
+import { Router } from '@angular/router'; // Roteamento
 
 @Component({
   selector: 'app-cadastro',
@@ -20,6 +21,7 @@ export class CadastroPage implements OnInit {
   private loading: any;
 
   public fGroup: FormGroup;
+  router: any;
 
   constructor(
     private fBuilder: FormBuilder,
@@ -65,7 +67,7 @@ export class CadastroPage implements OnInit {
       try {
         await this.userService.addUser(this.user);
         await this.loading.dismiss();
-        this.navCtrl.navigateBack('home');
+        this.navCtrl.navigateBack('cadastro');
       } catch (error) {
         this.presentToast('Erro ao tentar salvar.');
         this.loading.dismiss();

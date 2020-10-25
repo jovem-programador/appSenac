@@ -8,6 +8,13 @@ ion-content{
     height: 100% !important;
     width: 100% !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    //align-items: center !important;
+    //justify-content: center !important;
+}
+
+/* 1.1) Formata lista de botões */
+.login-table {
+    display: table;
+    margin : auto;
+    width  : 220px;
 }

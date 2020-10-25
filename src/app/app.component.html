@@ -4,12 +4,89 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Senac</ion-list-header>
-          
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-note></ion-note>
+          <ion-menu-toggle auto-hide="false">
+
+            
+            <div *ngIf="userData">
+
+              <hr>
+
+              <ion-item *ngIf="userData" routerDirection="root" routerLink="profile" detail="false" lines="none">
+                <ion-avatar slot="start">
+                  <img src="{{userData.photoURL}}" alt="{{userData.displayName}}">
+                </ion-avatar>
+                <ion-label>
+                  {{userData.displayName}}
+                  <div><small>{{ userData.email }}</small></div>
+                </ion-label>
+              </ion-item>
+
+              <hr>
+
+            </div>
+
+            <hr>
+
+            
+            <ion-item routerDirection="root" routerLink="/home" detail="false" lines="none">
+              <ion-icon slot="start" name="home" ios="home-outline" md="home-sharp"></ion-icon>
+              <ion-label>Início</ion-label>
             </ion-item>
+
+               
+            <div *ngIf="userData">
+
+              <hr>
+
+              <ion-item routerDirection="root" routerLink="/home" detail="false" lines="none">
+                <ion-icon slot="start" name="grid" ios="grid-outline" md="grid-sharp"></ion-icon>
+                <ion-label>Funcionalidade 1</ion-label>
+              </ion-item>
+
+              <ion-item routerDirection="root" routerLink="/home" detail="false" lines="none">
+                <ion-icon slot="start" name="grid" ios="grid-outline" md="grid-sharp"></ion-icon>
+                <ion-label>Funcionalidade 2</ion-label>
+              </ion-item>
+
+            </div>
+
+           
+
+            <hr>
+
+            <ion-item routerDirection="root" routerLink="/test01" detail="false" lines="none">
+              <ion-icon slot="start" name="grid" ios="grid-outline" md="grid-sharp"></ion-icon>
+              <ion-label>Suporte</ion-label>
+            </ion-item>
+
+
+            <hr>
+
+           
+            <ion-item *ngIf="!userData" routerDirection="root" routerLink="/login" detail="false" lines="none">
+              <ion-icon slot="start" name="log-in" ios="log-in-outline" md="log-in-sharp"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+
+            
+            <ion-item *ngIf="userData" routerDirection="root" routerLink="profile" detail="false" lines="none">
+              <ion-icon slot="start" name="person" ios="person-outline" md="person-sharp"></ion-icon>
+              <ion-label>Meu Perfil</ion-label>
+            </ion-item>
+
+            
+            <ion-item *ngIf="userData" routerDirection="root" routerLink="logout" detail="false" lines="none">
+              <ion-icon slot="start" name="log-out" ios="log-out-outline" md="log-out-sharp"></ion-icon>
+              <ion-label>Sair</ion-label>
+            </ion-item>
+
+            <hr>
+
+            <ion-item>
+              <ion-label>@Ulib Corporation</ion-label>
+            </ion-item>
+
           </ion-menu-toggle>
         </ion-list>
         <ion-list id="labels-list">
